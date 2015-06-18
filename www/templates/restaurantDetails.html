@@ -1,0 +1,20 @@
+<div class="restaurantInfo">
+    <p>{{restaurant.address}}</p>
+    <p>{{restaurant.city}}, {{restaurant.state}}</p>
+    <p>{{restaurant.phone}}</p>
+</div>
+<ui-gmap-google-map center="map.center" zoom="map.zoom">
+    <!-- <ui-gmap-markers models="markers" idKey="locationID" coords="userlocation"></ui-gmap-markers> -->
+</ui-gmap-google-map>
+<div class="restaurantReviews">
+    <h4>Reviews</h4>
+    <ion-list>
+        <ion-item ng-repeat="review in reviews">
+            <h4 class="reviewTitle">{{review.title}}</h4>
+            <ul class="rating">
+                <li class="icon ion-star" ng-repeat="star in getRating($index) track by $index"></li>
+            </ul>    
+            <p class="reviewBody">{{review.body}}</p>            
+        </ion-item>
+    </ion-list>
+</div>
