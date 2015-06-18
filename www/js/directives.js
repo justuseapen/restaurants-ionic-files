@@ -1,4 +1,4 @@
-angular.module('starter.directives', [])
+angular.module('directives', [])
   .directive('restaurantDetails', function() {
     return {
       restrict: 'E',

@@ -1,4 +1,4 @@
-angular.module('starter.services', [])
+angular.module('services', [])
 
 .service('restaurantService', function() {
   var selectedRestaurant;

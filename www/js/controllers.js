@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('controllers', [])
 
 .controller('ListCtrl', function($scope, $http, $ionicPlatform, $cordovaGeolocation, restaurantService) {
   
