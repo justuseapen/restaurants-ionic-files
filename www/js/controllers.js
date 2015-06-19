@@ -47,17 +47,22 @@ angular.module('controllers', [])
   $scope.reviews;
   $scope.stars;
   $scope.map;
-  $scope.locationID;
   $scope.userLocation;
-  $scope.markers = [];
+  $scope.marker;
 
   $scope.$on('$ionicView.beforeEnter', function () {
     $scope.restaurant = restaurantService.getSelected();
-    $scope.locationID = $scope.restaurant.restID;
     $scope.userLocation = {
       latitude: $scope.restaurant.location.latitude,
       longitude: $scope.restaurant.location.longitude
     }
+    $scope.marker = {
+      locationID: $scope.restaurant.restID,
+      coords: $scope.userLocation,
+      options: {
+        animation: google.maps.Animation.DROP
+      }
+    };
 
     $scope.map = { center: $scope.userLocation, zoom: 15 };
     
