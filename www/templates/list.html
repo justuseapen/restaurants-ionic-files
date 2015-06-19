@@ -3,7 +3,7 @@
   <ion-content>
     <ion-refresher
       pulling-text="Pull to refresh..."
-      on-refresh="getRestaurants()">
+      on-refresh="refreshLocation()">
     </ion-refresher>
     <ion-list>
       <ion-item href="#/details" ng-repeat="restaurant in restaurants" ng-click="setSelected(restaurant);">

@@ -2,6 +2,10 @@
 	border-color: #FF4600;
 }
 
+.bar.bar-light .title {
+	color: #FF4600;
+}
+
 .restaurantName {
 	color: #FF4600;
 	font-weight: 500;
@@ -37,4 +41,4 @@ h4.reviewTitle, .reviewBody {
 	float: right;
 }
 
-.angular-google-map-container { height: 200px; }
+.angular-google-map-container { height: 250px; }

@@ -9,7 +9,10 @@ angular.module('controllers', [])
 
   //refresh restaurant list whenever we enter view
   $scope.$on('$ionicView.beforeEnter', function () {
-    
+    $scope.refreshLocation();        
+  });
+  
+  $scope.refreshLocation = function () {
     var posOptions = {timeout: 10000, enableHighAccuracy: false};
     
     $ionicPlatform.ready(function() {
@@ -23,8 +26,9 @@ angular.module('controllers', [])
           // error
         });
     });    
-  });
-  
+  }
+
+
   //function needs to be attached to scope for pull to refresh
   $scope.getRestaurants = function (userLat, userLong) {    
     
@@ -45,7 +49,7 @@ angular.module('controllers', [])
   $scope.map;
   $scope.locationID;
   $scope.userLocation;
-$scope.markers = [];
+  $scope.markers = [];
 
   $scope.$on('$ionicView.beforeEnter', function () {
     $scope.restaurant = restaurantService.getSelected();
@@ -55,7 +59,7 @@ $scope.markers = [];
       longitude: $scope.restaurant.location.longitude
     }
 
-    $scope.map = { center: $scope.userLocation, zoom: 16 };
+    $scope.map = { center: $scope.userLocation, zoom: 15 };
     
     $http.get('http://api.usergrid.com/alexm/sandbox/reviews?ql=restID=' + $scope.restaurant.restID)
       .success(function(data, status, headers, config) {
