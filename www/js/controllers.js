@@ -7,13 +7,13 @@ angular.module('controllers', [])
   //attach service function to scope
   $scope.setSelected = restaurantService.setSelected;
 
-  //refresh restaurant list whenever we enter view
+  //refresh restaurant list whenever we enter this view
   $scope.$on('$ionicView.beforeEnter', function () {
     $scope.refreshLocation();        
   });
   
   $scope.refreshLocation = function () {
-    var posOptions = {timeout: 10000, enableHighAccuracy: false};
+    var posOptions = {timeout: 10000, maximumAge: 30000, enableHighAccuracy: false};
     
     $ionicPlatform.ready(function() {
       $cordovaGeolocation
