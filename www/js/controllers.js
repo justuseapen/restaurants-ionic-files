@@ -47,26 +47,25 @@ angular.module('controllers', [])
   $scope.reviews;
   $scope.stars;
   $scope.map;
+  $scope.restID;
   $scope.userLocation;
-  $scope.marker;
+  $scope.markerOptions;
+  $scope.restID;
 
   $scope.$on('$ionicView.beforeEnter', function () {
     $scope.restaurant = restaurantService.getSelected();
+    $scope.restID = $scope.restaurant.restID;  
     $scope.userLocation = {
       latitude: $scope.restaurant.location.latitude,
       longitude: $scope.restaurant.location.longitude
     }
-    $scope.marker = {
-      locationID: $scope.restaurant.restID,
-      coords: $scope.userLocation,
-      options: {
-        animation: google.maps.Animation.DROP
-      }
-    };
-
-    $scope.map = { center: $scope.userLocation, zoom: 15 };
     
-    $http.get('http://api.usergrid.com/alexm/sandbox/reviews?ql=restID=' + $scope.restaurant.restID)
+    $scope.map = { center: $scope.userLocation, zoom: 15 };
+    $scope.markerOptions = {
+      animation: google.maps.Animation.DROP
+    }
+
+    $http.get('http://api.usergrid.com/alexm/sandbox/reviews?ql=restID=' + $scope.restID)
       .success(function(data, status, headers, config) {
         $scope.reviews = data.entities;             
       }); 

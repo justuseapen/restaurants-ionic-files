@@ -39,6 +39,7 @@ h4.reviewTitle, .reviewBody {
 .rating > li.ion-star {
 	color: #FF4600;
 	float: right;
+	line-height: 15px;
 }
 
 .angular-google-map-container { height: 250px; }
