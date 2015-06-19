@@ -1,8 +1,8 @@
 angular.module('directives', [])
-  .directive('restaurantDetails', function() {
+  .directive('reviews', function() {
     return {
       restrict: 'E',
       scope: false,
-      templateUrl: 'templates/restaurantDetails.html'
+      templateUrl: 'templates/reviews.html'
     };
   })
