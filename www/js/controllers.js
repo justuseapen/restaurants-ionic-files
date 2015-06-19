@@ -59,17 +59,21 @@ angular.module('controllers', [])
       latitude: $scope.restaurant.location.latitude,
       longitude: $scope.restaurant.location.longitude
     }
-    
+
     $scope.map = { center: $scope.userLocation, zoom: 15 };
     $scope.markerOptions = {
       animation: google.maps.Animation.DROP
     }
 
-    $http.get('http://api.usergrid.com/alexm/sandbox/reviews?ql=restID=' + $scope.restID)
-      .success(function(data, status, headers, config) {
-        $scope.reviews = data.entities;             
-      }); 
+    getReviews($scope.restID);
   });
+
+  var getReviews = function (restID) {
+    $http.get('http://api.usergrid.com/alexm/sandbox/reviews?ql=restID=' + restID)
+      .success(function(data, status, headers, config) {
+        $scope.reviews = data.entities;
+      }); 
+  }
 
   $scope.getRating = function (ratingIndex) {
     var rating = parseInt($scope.reviews[ratingIndex].rating);
