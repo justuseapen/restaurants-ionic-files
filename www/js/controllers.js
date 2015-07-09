@@ -40,6 +40,7 @@ angular.module('controllers', [])
                 console.log(data)
                 $scope.restaurants = data.entities;
                 $scope.$broadcast('scroll.refreshComplete');
+                angular.element(document.querySelector('.spinnerdiv')).addClass('hidden');
             });
     }
 })
@@ -75,12 +76,12 @@ angular.module('controllers', [])
     });
 
     var getReviews = function(restID) {
-        $http.get('http://api.usergrid.com/grewis/sandbox/reviews?limit=999&ql=restID=' + restID +' order by modified DESC')
+        $http.get('http://api.usergrid.com/grewis/sandbox/reviews?limit=999&ql=restID=' + restID + ' order by modified DESC')
             .success(function(data, status, headers, config) {
+                angular.element(document.querySelector('.reviewsdiv')).addClass('hidden');
                 $scope.reviews = data.entities;
                 if ($scope.reviews.length <= 0) {
-                  var firstReview = angular.element(document.querySelector('.first-review'));
-                  firstReview.removeClass('hidden');
+                    angular.element(document.querySelector('.first-review')).removeClass('hidden');
                 }
             });
     }

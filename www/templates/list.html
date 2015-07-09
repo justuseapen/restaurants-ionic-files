@@ -1,10 +1,13 @@
 <ion-view>
   <ion-nav-title>RESTaurants</ion-nav-title>
+      <div class="spinnerdiv">
+    <ion-spinner></ion-spinner>
+</div>
   <ion-content>
     <ion-refresher
       pulling-text="Pull to refresh..."
       on-refresh="refreshLocation()">
-    </ion-refresher>
+    </ion-refresher>    
     <ion-list>
       <ion-item class="item-icon-right" href="#/details" ng-repeat="restaurant in restaurants" ng-click="setSelected(restaurant);">
         {{restaurant.name}}

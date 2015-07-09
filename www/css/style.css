@@ -11,6 +11,28 @@
     color: #FF4600;
 }
 
+div.spinnerdiv {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 85px;
+    text-align: center;
+}
+
+div.spinnerdiv.reviewsdiv {
+    margin: auto;
+    position: absolute;
+    top: 140px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 85px;
+    text-align: center;
+}
+
 .restaurantName {
     color: #FF4600;
     font-weight: 500;
@@ -24,6 +46,10 @@
     margin-top: 8px;
     margin-bottom: 8px;
     text-align: center;
+}
+
+.restaurantReviews {
+	position: relative;
 }
 
 .restaurantReviews > h4 {
@@ -43,9 +69,7 @@ h4.reviewTitle {
     font-size: 14px;
 }
 
-.reviewBody {
-
-}
+.reviewBody {}
 
 .button.reviewButton {
     float: right;
@@ -54,13 +78,21 @@ h4.reviewTitle {
     height: 24px;
 }
 
+.button.button-orange {
+    background-color: #FF6400;
+    color: #FFF;
+    border: none;
+    font-size: 24px;
+}
+
 .button-icon.icon:before {
     font-size: 24px;
     color: #FF4600;
 }
+
 .ion-chevron-right:before {
-	font-size: 19px;
-	color: #FF6400;
+    font-size: 19px;
+    color: #FF6400;
 }
 
 .item p {
