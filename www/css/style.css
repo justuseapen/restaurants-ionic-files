@@ -1,45 +1,59 @@
 .bar.bar-light {
-	border-color: #FF4600;
+    border-bottom: 1px solid #FF4600;
 }
 
 .bar.bar-light .title {
-	color: #FF4600;
+	font-size: 20px;
+}
+
+.bar.bar-light .title,
+.bar-light .button.button-clear {
+    color: #FF4600;
 }
 
 .restaurantName {
-	color: #FF4600;
-	font-weight: 500;
-	font-size: 20px;
-	text-align: center;
+    color: #FF4600;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
 }
 
 .restaurantInfo > p {
-	color: #6F6F6F;
-	font-size: 16px;
-	margin-bottom: 8px;
-	text-align: center;
+    color: #6F6F6F;
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    text-align: center;
 }
 
 .restaurantReviews > h4 {
-	margin-left: 15px;
+    margin-left: 15px;
+    display: inline-block;
 }
 
-h4.reviewTitle, .reviewBody {
-	float: left;
+h4.reviewTitle,
+.reviewBody {
+    float: left;
+}
+
+.reviewButton {
+	/*float: right;*/
 }
 
 .item p {
-	white-space: normal;
+    white-space: normal;
 }
 
 .rating {
-	float: right;
+    float: right;
 }
 
 .rating > li.ion-star {
-	color: #FF4600;
-	float: right;
-	line-height: 15px;
+    color: #FF4600;
+    float: right;
+    line-height: 15px;
 }
 
-.angular-google-map-container { height: 250px; }
+.angular-google-map-container {
+    height: 250px;
+}
