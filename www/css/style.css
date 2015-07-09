@@ -3,7 +3,7 @@
 }
 
 .bar.bar-light .title {
-	font-size: 20px;
+    font-size: 20px;
 }
 
 .bar.bar-light .title,
@@ -31,13 +31,36 @@
     display: inline-block;
 }
 
-h4.reviewTitle,
-.reviewBody {
-    float: left;
+.first-review {
+    margin-left: 15px;
 }
 
-.reviewButton {
-	/*float: right;*/
+.hidden {
+    display: none;
+}
+
+h4.reviewTitle {
+    font-size: 14px;
+}
+
+.reviewBody {
+
+}
+
+.button.reviewButton {
+    float: right;
+    min-height: 24px;
+    line-height: 24px;
+    height: 24px;
+}
+
+.button-icon.icon:before {
+    font-size: 24px;
+    color: #FF4600;
+}
+.ion-chevron-right:before {
+	font-size: 19px;
+	color: #FF6400;
 }
 
 .item p {

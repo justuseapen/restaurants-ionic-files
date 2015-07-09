@@ -69,15 +69,19 @@ angular.module('controllers', [])
         };
         $scope.markerOptions = {
             animation: google.maps.Animation.DROP
-        }
+        };
 
         getReviews($scope.restID);
     });
 
     var getReviews = function(restID) {
-        $http.get('http://api.usergrid.com/grewis/sandbox/reviews?limit=999&ql=restID=' + restID)
+        $http.get('http://api.usergrid.com/grewis/sandbox/reviews?limit=999&ql=restID=' + restID +' order by modified DESC')
             .success(function(data, status, headers, config) {
                 $scope.reviews = data.entities;
+                if ($scope.reviews.length <= 0) {
+                  var firstReview = angular.element(document.querySelector('.first-review'));
+                  firstReview.removeClass('hidden');
+                }
             });
     }
 
@@ -88,7 +92,7 @@ angular.module('controllers', [])
 
 })
 
-.controller('FormCtrl', function($scope, $http, restaurantService) {
+.controller('FormCtrl', function($scope, $http, $ionicHistory, restaurantService) {
     $scope.restaurant;
     $scope.restID;
 
@@ -111,6 +115,7 @@ angular.module('controllers', [])
                 review.name = null;
                 review.rating = null;
                 review.body = null;
+                $ionicHistory.goBack();
             })
     }
 });

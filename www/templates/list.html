@@ -6,8 +6,9 @@
       on-refresh="refreshLocation()">
     </ion-refresher>
     <ion-list>
-      <ion-item href="#/details" ng-repeat="restaurant in restaurants" ng-click="setSelected(restaurant);">
+      <ion-item class="item-icon-right" href="#/details" ng-repeat="restaurant in restaurants" ng-click="setSelected(restaurant);">
         {{restaurant.name}}
+        <i class="icon ion-chevron-right"></i>
       </ion-item>
     </ion-list>
   </ion-content>
