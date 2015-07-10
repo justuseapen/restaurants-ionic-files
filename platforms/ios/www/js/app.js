@@ -21,27 +21,35 @@ angular.module('RESTaurants', ['ionic', 'controllers', 'services', 'directives',
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
-  $stateProvider
+ // Ionic uses AngularUI Router which uses the concept of states
+ // Learn more here: https://github.com/angular-ui/ui-router
+ // Set up the various states which the app can be in.
+ // Each state's controller can be found in controllers.js
+ $stateProvider
 
-  .state('list', {
-    url: "/",
-    templateUrl: 'templates/list.html',
-    controller: 'ListCtrl'
-  })
+ .state('list', {
+   url: "/",
+   templateUrl: 'templates/list.html',
+   controller: 'ListCtrl'
+ })
 
-  .state('details', {
-    url: '/details',
-    templateUrl: 'templates/details.html',
-    controller: 'DetailsCtrl'
-  })
+ .state('details', {
+   url: '/details',
+   templateUrl: 'templates/details.html',
+   controller: 'DetailsCtrl'
+ })
 
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/');
+ .state('form', {
+   url: '/form',
+   templateUrl: 'templates/reviewForm.html',
+   controller: 'FormCtrl'
+ })
+
+ // if none of the above states are matched, use this as the fallback
+ $urlRouterProvider.otherwise('/');
+
+ $ionicConfigProvider.backButton.previousTitleText(false).text(' ');
 
 });

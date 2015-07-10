@@ -20,11 +20,12 @@ angular.module('controllers', [])
         };
 
         $ionicPlatform.ready(function() {
+            // $scope.getRestaurants();
             $cordovaGeolocation
                 .getCurrentPosition(posOptions)
                 .then(function(position) {
-                    userLat = position.coords.latitude
-                    userLong = position.coords.longitude
+                    userLat = position.coords.latitude;
+                    userLong = position.coords.longitude;
                     $scope.getRestaurants(userLat, userLong);
                 }, function(err) {
                     // error
@@ -35,7 +36,7 @@ angular.module('controllers', [])
 
     //function needs to be attached to scope for pull to refresh
     $scope.getRestaurants = function(userLat, userLong) {
-        $http.get('http://api.usergrid.com/grewis/sandbox/restaurants?limit=999')
+        $http.get('http://grewis-test.apigee.net/api-mobile-app/yelp?ll=' + userLat + ',' + userLong)
             .success(function(data, status, headers, config) {
                 console.log(data)
                 $scope.restaurants = data.entities;
